@@ -8,6 +8,7 @@ public class Player_damage : MonoBehaviour {
     public GameObject damageBurst;
     public Transform hitPoint;
     public GameObject damageNumber;
+    public PlayerStats PlayerStats;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +17,8 @@ public class Player_damage : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+        damage = PlayerStats.strength;
         
 
 	}

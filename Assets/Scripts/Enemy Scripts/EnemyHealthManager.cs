@@ -6,6 +6,9 @@ public class EnemyHealthManager : MonoBehaviour {
 
     public int enemyMaxHP;
     public int enemyCurrentHP;
+    public int expToGive;
+
+    private PlayerStats thePlayerStats;
 
     // enemyArmor isn't used, just an idea
     public int enemyArmor;
@@ -16,6 +19,7 @@ public class EnemyHealthManager : MonoBehaviour {
     {
 
         enemyCurrentHP = enemyMaxHP;
+        thePlayerStats = FindObjectOfType<PlayerStats>();
 
     }
 
@@ -27,6 +31,8 @@ public class EnemyHealthManager : MonoBehaviour {
         {
             // if the enemy does not have health, DESTROY IT. easy enough Joey?
             Destroy(gameObject);
+
+            thePlayerStats.AddExperience(expToGive);
 
         }
 
