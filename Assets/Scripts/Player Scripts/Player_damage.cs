@@ -7,6 +7,7 @@ public class Player_damage : MonoBehaviour {
     public int damage;
     public GameObject damageBurst;
     public Transform hitPoint;
+    public GameObject damageNumber;
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +34,10 @@ public class Player_damage : MonoBehaviour {
 
             // particle effect
             Instantiate(damageBurst, hitPoint.position, hitPoint.rotation);
+
+            var clone = (GameObject)Instantiate(damageNumber, hitPoint.position, Quaternion.Euler(Vector3.zero));
+            clone.GetComponent<FloatingNumbers>().damageNumber = damage;
+            clone.transform.position = new Vector2(transform.position.x, transform.position.y);
 
         }
 
