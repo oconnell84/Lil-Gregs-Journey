@@ -10,8 +10,11 @@ public class Warp : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
     {
 
-        Debug.Log("An object collided");
-        other.gameObject.transform.position = warpTarget.position;
-        Camera.main.transform.position = warpTarget.position;
+        if (other.tag == "Player")
+        {
+            Debug.Log("An object collided");
+            other.gameObject.transform.position = warpTarget.position;
+            Camera.main.transform.position = warpTarget.position;
+        }
     }
 }
