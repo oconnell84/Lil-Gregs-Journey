@@ -20,7 +20,16 @@ public class UIManager : MonoBehaviour {
 
         healthBar.maxValue = playerHealth.playerMaxHP;
         healthBar.value = playerHealth.playerCurrentHP;
-        HPText.text = "HP: " + playerHealth.playerCurrentHP + "/" + playerHealth.playerMaxHP;
+        if (playerHealth.playerCurrentHP >= 0)
+        {
+            HPText.text = "HP: " + playerHealth.playerCurrentHP + "/" + playerHealth.playerMaxHP;
+        }
+
+        else
+        {
+            HPText.text = "HP: 0/" + playerHealth.playerMaxHP;
+
+        }
 
 	}
 }
