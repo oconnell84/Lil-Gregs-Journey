@@ -6,21 +6,23 @@ public class PlayerHealthManager : MonoBehaviour {
 
     public int playerMaxHP;
     public int playerCurrentHP;
-
-    // playerArmor isn't used, just an idea
-    public int playerArmor;
+    public PlayerStats playerStats;
     
 
 	// Use this for initialization
 	void Start () {
 
+        playerMaxHP = playerStats.maxHP;
         playerCurrentHP = playerMaxHP;
+        
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+        
+
         if (playerCurrentHP < 0)
         {
 
@@ -33,16 +35,23 @@ public class PlayerHealthManager : MonoBehaviour {
     // enemy object can invoke this function to cause damage to player on collison
     public void HurtPlayer(int damage) {
 
-        playerCurrentHP -= damage;
+        int damageToGive = damage - playerStats.currentDefence;
+        if (damageToGive <= 0)
+        {
+
+            damageToGive = 1;
+        }
+
+        playerCurrentHP -= damageToGive;
 
 
 
     }
 
-    public void SetMaxHP()
+    public void setMaxHP()
     {
 
-        playerCurrentHP = playerMaxHP; 
+        playerMaxHP = playerStats.maxHP; 
 
     }
 }

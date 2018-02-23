@@ -10,7 +10,7 @@ public class Player_Movement : MonoBehaviour {
 
     public float speed = 1.0f;
 
-    private bool attacking;
+    public bool attacking;
     public float attackTime;
     private float attackTimeCounter;
 
