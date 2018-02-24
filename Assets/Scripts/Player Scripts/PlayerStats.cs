@@ -37,15 +37,14 @@ public class PlayerStats : MonoBehaviour {
         if (currentXP >= toLevelUp[currentLevel])
         {
 
-            currentLevel++;
-            maxHP = HPLevels[currentLevel];
-            currentAttack = attackLevels[currentLevel];
-            currentDefence = defenceLevels[currentLevel];
-            PHM.setMaxHP();
+
+            LevelUp();
+            
 
         }
 
 	}
+
 
     public void AddExperience(int experienceToAdd)
     {
@@ -53,4 +52,19 @@ public class PlayerStats : MonoBehaviour {
         currentXP += experienceToAdd;
 
     }
+
+
+    public void LevelUp()
+    {
+
+        currentLevel++;
+        maxHP = HPLevels[currentLevel];
+        currentAttack = attackLevels[currentLevel];
+        currentDefence = defenceLevels[currentLevel];
+        PHM.setMaxHP();
+        PHM.setHealthToMaxHP();
+
+
+    }
+
 }

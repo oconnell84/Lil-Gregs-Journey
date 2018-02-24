@@ -7,7 +7,9 @@ public class UIManager : MonoBehaviour {
 
     public Slider healthBar;
     public Text HPText;
+    public Text LevelText;
     public PlayerHealthManager playerHealth;
+    public PlayerStats playerStats;
     
 
 	// Use this for initialization
@@ -30,6 +32,8 @@ public class UIManager : MonoBehaviour {
             HPText.text = "HP: 0/" + playerHealth.playerMaxHP;
 
         }
+
+        LevelText.text = "Lvl: " + playerStats.currentLevel;
 
 	}
 }

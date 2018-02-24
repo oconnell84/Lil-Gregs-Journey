@@ -54,4 +54,25 @@ public class PlayerHealthManager : MonoBehaviour {
         playerMaxHP = playerStats.maxHP; 
 
     }
+
+    public void setHealthToMaxHP()
+    {
+
+        playerCurrentHP = playerMaxHP;
+
+    }
+
+    public void healFor(int amountToHeal)
+    {
+
+        playerCurrentHP += amountToHeal;
+
+        if (playerCurrentHP > playerMaxHP)
+        {
+
+            playerCurrentHP = playerMaxHP;
+
+        }
+
+    }
 }
