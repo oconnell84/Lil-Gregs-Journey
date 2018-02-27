@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class InterObject : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public bool inventory;      // if true, this object can be stored in inventory
 
     public void DoInteraction()
     {

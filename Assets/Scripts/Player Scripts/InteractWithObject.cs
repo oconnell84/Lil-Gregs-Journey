@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class InteractWithObject : MonoBehaviour {
 
-    GameObject currentInteractiveObject = null;
+    public GameObject currentInteractiveObject = null;
+    public InterObject currentInterObjectScript = null;
+    public Inventory inventory;
 
 	// Use this for initialization
 	void Start () {
@@ -16,9 +18,16 @@ public class InteractWithObject : MonoBehaviour {
 		
         if (Input.GetKey(KeyCode.E) && currentInteractiveObject)
         {
-            // Do something with the object
-            currentInteractiveObject.SendMessage("DoInteraction");
 
+            // Check if object can be stored in inventory
+            if (currentInterObjectScript.inventory)
+            {
+
+                inventory.AddItem(currentInteractiveObject);
+
+            }
+
+            
 
         }
 
@@ -32,6 +41,7 @@ public class InteractWithObject : MonoBehaviour {
 
             Debug.Log(other.name);
             currentInteractiveObject = other.gameObject;
+            currentInterObjectScript = currentInteractiveObject.GetComponent<InterObject>();
 
         }
 
@@ -45,7 +55,7 @@ public class InteractWithObject : MonoBehaviour {
         {
             if (other.gameObject == currentInteractiveObject)
             {
-
+                //Debug.Log("Object exited");
                 currentInteractiveObject = null;
 
             }
